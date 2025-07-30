@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../shared/widgets/animated_button.dart';
-import '../bloc/question_bloc.dart';
-import '../bloc/question_event.dart';
+import 'rules_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -38,7 +36,13 @@ class WelcomeScreen extends StatelessWidget {
           const SizedBox(height: AppTheme.spacingXXXL),
           AnimatedButton(
             text: "🎮 COMEÇAR JOGO",
-            onPressed: () => context.read<QuestionBloc>().add(FetchQuestionEvent()),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const RulesScreen(),
+                ),
+              );
+            },
             color: AppTheme.primary,
           ),
         ],
