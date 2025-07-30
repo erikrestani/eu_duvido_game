@@ -16,6 +16,8 @@ This project follows Clean Architecture principles with the following structure:
 ```
 lib/
 ├── core/                    # Core utilities and shared components
+│   └── theme/              # App theme and styling system
+│       └── app_theme.dart  # Centralized theme configuration
 ├── features/               # Feature-based modules
 │   └── game/              # Game feature
 │       ├── application/   # Use cases and application logic
@@ -24,24 +26,38 @@ lib/
 │       ├── domain/        # Domain layer (entities, repositories interfaces)
 │       └── presentation/  # Presentation layer (UI, BLoC)
 │           ├── bloc/      # BLoC components
-│           ├── screens/   # UI screens
-│           └── widgets/   # Reusable widgets
+│           ├── screens/   # Complete UI screens
+│           │   ├── home_page.dart      # Main container page
+│           │   ├── welcome_screen.dart # Welcome screen
+│           │   ├── loading_screen.dart # Loading screen
+│           │   └── question_screen.dart # Game screen
+│           └── widgets/   # Reusable UI components
 ├── shared/                # Shared components and utilities
+│   └── widgets/           # Shared reusable widgets
+│       └── animated_button.dart # Animated button component
 └── main.dart             # Application entry point
 ```
 
 ### Architecture Layers
 
-1. **Presentation Layer**: Contains UI components, BLoC classes, and widgets
+1. **Presentation Layer**: Contains UI screens, BLoC classes, and reusable widgets
 2. **Application Layer**: Contains use cases and application business logic
 3. **Domain Layer**: Contains entities and repository interfaces
 4. **Data Layer**: Contains repository implementations and data sources
+
+### UI Organization
+
+- **Screens**: Complete UI screens that represent full pages
+- **Widgets**: Reusable UI components used across multiple screens
+- **Theme**: Centralized styling system for consistent design
+- **BLoC**: State management for reactive UI updates
 
 ## 🛠️ Tech Stack
 
 - **Framework**: Flutter
 - **State Management**: BLoC (Business Logic Component)
 - **Architecture**: Clean Architecture with Domain-Driven Design
+- **UI System**: Centralized theme with reusable components
 - **Language**: Dart
 
 ## 📦 Dependencies
@@ -49,6 +65,16 @@ lib/
 - `flutter_bloc: ^8.1.4` - BLoC state management for Flutter
 - `bloc: ^8.1.3` - Core BLoC library
 - `cupertino_icons: ^1.0.8` - iOS-style icons
+
+## 🎨 Design System
+
+The app uses a centralized theme system (`AppTheme`) that provides:
+- **Consistent colors** and gradients
+- **Typography styles** for different text hierarchies
+- **Spacing constants** for uniform layouts
+- **Reusable decorations** for cards and containers
+- **Button styles** and shadows
+- **Modern UI components** with animations
 
 ## 🚀 Getting Started
 
